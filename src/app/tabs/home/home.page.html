@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="barcode-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title> Tosca's app </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button>
+        <ion-icon name="card-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="zoek een product"></ion-searchbar>
+  <app-edit-order-button></app-edit-order-button>
+
+  <ion-row
+    class="ion-align-items-center ion-justify-content-between ion-margin-horizontal"
+  >
+    <div>
+      <h2 class="ion-no-margin">Mijn Albert Heijn</h2>
+    </div>
+    <ion-button fill="clear"> <strong> Bekijk alles </strong> </ion-button>
+  </ion-row>
+
+  <swiper [slidesPerView]="1.3">
+    <ng-container *ngFor="let slide of mijnAlberHeijnSlides">
+      <ng-template swiperSlide>
+        <ion-item lines="none" *ngFor="let listItem of slide">
+          <ion-thumbnail slot="start">
+            <ion-img src="https://picsum.photos/200"></ion-img>
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{listItem.title}}</h2>
+            <p>{{listItem.subtitle}}</p>
+          </ion-label>
+        </ion-item>
+      </ng-template>
+    </ng-container>
+  </swiper>
+
+  <ion-row class="ion-margin-horizontal">
+    <h2>Deze week bij Albert Heijn</h2>
+  </ion-row>
+
+  <swiper [slidesPerView]="1.3">
+    <ng-container *ngFor="let x of [1,2,3,4]">
+      <ng-template swiperSlide>
+        <ion-card>
+          <ion-img src="https://picsum.photos/200"></ion-img>
+        </ion-card>
+      </ng-template>
+    </ng-container>
+  </swiper>
+</ion-content>
